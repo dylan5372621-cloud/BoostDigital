@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boost Digital: servicios de marketing, diseño y gestión de redes sociales en Panamá.">
+  <title>Boost Digital | Impulsa tu presencia digital</title>
+
+  <style>
+    :root {
+      --fondo: #070b14;
+      --panel: #101827;
+      --azul: #16a9ff;
+      --azul-claro: #70d4ff;
+      --blanco: #f5f8ff;
+      --gris: #aab6c8;
+      --borde: rgba(112, 212, 255, .2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--blanco);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .contenedor {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 11, 20, .96);
+      border-bottom: 1px solid var(--borde);
+      backdrop-filter: blur(12px);
+    }
+
+    .barra {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 21px;
+      white-space: nowrap;
+    }
+
+    .marca img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .marca span {
+      color: var(--azul-claro);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: var(--azul-claro);
+    }
+
+    .boton {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 17px;
+      border: 1px solid var(--azul);
+      border-radius: 9px;
+      background: var(--azul);
+      color: #04101c;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .boton:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .boton-secundario {
+      background: transparent;
+      color: var(--blanco);
+    }
+
+    .boton-pequeno {
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 490px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 15%, rgba(22, 169, 255, .18), transparent 58%);
+    }
+
+    .hero-contenido {
+      max-width: 790px;
+      margin: auto;
+      padding: 75px 0;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      border: 1px solid var(--borde);
+      color: var(--azul-claro);
+      background: rgba(22, 169, 255, .08);
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(37px, 6vw, 65px);
+      line-height: 1.12;
+      margin-bottom: 22px;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span,
+    .resaltado {
+      color: var(--azul-claro);
+    }
+
+    .hero p {
+      color: var(--gris);
+      font-size: 18px;
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .titulo-seccion h2 {
+      font-size: clamp(27px, 4vw, 39px);
+      margin-bottom: 10px;
+    }
+
+    .titulo-seccion p {
+      color: var(--gris);
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tarjeta {
+      background: var(--panel);
+      border: 1px solid var(--borde);
+      border-radius: 17px;
+      padding: 27px;
+    }
+
+    .tarjeta h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .tarjeta p {
+      color: var(--gris);
+    }
+
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .paso {
+      padding: 23px 18px;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      background: var(--panel);
+    }
+
+    .numero {
+      color: var(--azul-claro);
+      font-size: 27px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .paso h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .paso p {
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .paquetes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .paquete {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 27px 22px;
+    }
+
+    .paquete.destacado {
+      border-color: var(--azul);
+      box-shadow: 0 0 28px rgba(22, 169, 255, .1);
+    }
+
+    .popular {
+      color: var(--azul-claro);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .icono-paquete {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .paquete h3 {
+      font-size: 24px;
+    }
+
+    .precio {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 13px 0;
+    }
+
+    .precio small {
+      font-size: 14px;
+      color: var(--gris);
+      font-weight: 400;
+    }
+
+    .paquete > p {
+      color: var(--gris);
+      margin-bottom: 18px;
+    }
+
+    .paquete ul {
+      list-style: none;
+      margin-bottom: 25px;
+      flex: 1;
+    }
+
+    .paquete li {
+      padding: 7px 0;
+      color: #d8e2f1;
+      font-size: 14px;
+    }
+
+    .paquete li::before {
+      content: "✓ ";
+      color: var(--azul-claro);
+      font-weight: bold;
+    }
+
+    .acciones-paquete {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acciones-paquete .boton {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .beneficio {
+      padding: 22px;
+      border-left: 3px solid var(--azul);
+      background: rgba(16, 24, 39, .7);
+    }
+
+    .beneficio h3 {
+      margin-bottom: 7px;
+    }
+
+    .beneficio p {
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .contacto {
+      text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(22, 169, 255, .08));
+    }
+
+    .contacto p {
+      color: var(--gris);
+      max-width: 600px;
+      margin: 12px auto 24px;
+    }
+
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 25px 0;
+      color: var(--gris);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Ventana flotante del carrito */
+
+    .carrito-ventana {
+      position: fixed;
+      z-index: 30;
+      top: 85px;
+      right: max(4%, calc((100% - 1100px) / 2));
+      width: min(370px, 92vw);
+      max-height: 78vh;
+      overflow-y: auto;
+      padding: 22px;
+      background: #101827;
+      border: 1px solid var(--azul);
+      border-radius: 16px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, .55);
+      display: none;
+    }
+
+    .carrito-ventana.abierto {
+      display: block;
+    }
+
+    .carrito-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .cerrar {
+      border: 0;
+      background: transparent;
+      color: var(--blanco);
+      font-size: 25px;
+      padding: 0 6px;
+    }
+
+    .producto-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--borde);
+      padding: 12px 0;
+    }
+
+    .producto-carrito small {
+      color: var(--gris);
+      display: block;
+    }
+
+    .quitar {
+      border: 1px solid #ff7373;
+      background: transparent;
+      color: #ff9292;
+      border-radius: 7px;
+      padding: 5px 8px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 19px;
+      padding: 17px 0;
+    }
+
+    .carrito-acciones {
+      display: grid;
+      gap: 10px;
+    }
+
+    .carrito-acciones .boton {
+      width: 100%;
+    }
+
+    .vacio {
+      color: var(--gris);
+      padding: 12px 0;
+    }
+
+    .aviso {
+      color: var(--gris);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      z-index: 9;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #20c76a;
+      color: #04170c;
+      font-size: 28px;
+      box-shadow: 0 5px 20px #0007;
+    }
+
+    @media (max-width: 800px) {
+      .barra {
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding: 7px 0;
+        gap: 17px;
+      }
+
+      .pasos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .paquetes {
+        grid-template-columns: 1fr;
+        max-width: 470px;
+        margin: auto;
+      }
+
+      .beneficios {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .marca {
+        font-size: 17px;
+      }
+
+      .marca img {
+        width: 43px;
+        height: 43px;
+      }
+
+      .barra > .boton {
+        padding: 9px 10px;
+        font-size: 13px;
+      }
+
+      .rejilla,
+      .pasos {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio">
+        <img src="logo.png" alt="Logo de Boost Digital">
+        <div>BOOST <span>DIGITAL</span></div>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#funciona">Cómo funciona</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="boton boton-pequeno"
+        type="button" onclick="abrirCarrito()">
+        🛒 Carrito (<span id="cantidad">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="contenedor hero-contenido">
+        <div class="etiqueta">🚀 Tu crecimiento comienza aquí</div>
+        <h1>Impulsa tu marca al <span>siguiente nivel</span></h1>
+        <p>
+          En Boost Digital ayudamos a emprendedores y negocios a fortalecer
+          su presencia digital con creatividad, diseño y soluciones accesibles.
+        </p>
+        <div class="botones">
+          <a class="boton" href="#paquetes">🚀 Ver paquetes</a>
+          <a class="boton boton-secundario"
+            href="https://wa.me/50766480803?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Boost%20Digital"
+            target="_blank" rel="noopener noreferrer">
+            📲 Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>Conoce <span class="resaltado">Boost Digital</span></h2>
+          <p>Ideas creativas para fortalecer tu presencia en internet.</p>
+        </div>
+
+        <div class="rejilla">
+          <article class="tarjeta">
+            <h3>🎯 Nuestra misión</h3>
+            <p>
+              Ayudar a emprendedores y negocios a fortalecer su presencia
+              digital mediante servicios de marketing, diseño y gestión de
+              redes sociales, ofreciendo soluciones creativas, accesibles
+              y de calidad.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>🔭 Nuestra visión</h3>
+            <p>
+              Ser una agencia digital reconocida en Panamá por impulsar
+              el crecimiento de emprendedores y negocios, destacándonos
+              por nuestra creatividad, innovación y compromiso con
+              nuestros clientes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="funciona">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>¿Cómo funciona?</h2>
+          <p>Comenzar con Boost Digital es sencillo.</p>
+        </div>
+
+        <div class="pasos">
+          <article class="paso">
+            <div class="numero">01</div>
+            <h3>Elige tu paquete</h3>
+            <p>Revisa las opciones y selecciona la que te interese.</p>
+          </article>
+
+          <article class="paso">
+            <div class="numero">02</div>
+            <h3>Contáctanos</h3>
+            <p>Escríbenos por WhatsApp para conversar sobre tu pedido.</p>
+          </article>
+
+          <article class="paso">
+            <div class="numero">03</div>
+            <h3>Coordina tu pedido</h3>
+            <p>Confirmamos los detalles, el precio y la forma de pago.</p>
+          </article>
+
+          <article class="paso">
+            <div class="numero">04</div>
+            <h3>Recibe tu servicio</h3>
+            <p>Coordinamos la entrega según lo acordado contigo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="paquetes">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>Nuestros <span class="resaltado">paquetes</span></h2>
+          <p>Elige una opción y contáctanos para conocer los detalles.</p>
+        </div>
+
+        <div class="paquetes">
+          <article class="paquete">
+            <div class="icono-paquete">🌱</div>
+            <h3>Básico</h3>
+            <div class="precio">$15 <small>USD</small></div>
+            <p>Una opción para comenzar.</p>
+            <ul>
+              <li>Orientación inicial</li>
+              <li>Atención por WhatsApp</li>
+              <li>Coordinación personalizada</li>
+            </ul>
+            <div class="acciones-paquete">
+              <button class="boton"
+                onclick="agregarAlCarrito('Básico', 15)">
+                🛒 Agregar al carrito
+              </button>
+              <button class="boton boton-secundario"
+                onclick="comprarAhora('Básico', 15)">
+                📲 Contactar para comprar
+              </button>
+            </div>
+          </article>
+
+          <article class="paquete destacado">
+            <div class="popular">⭐ MÁS ELEGIDO</div>
+            <div class="icono-paquete">🚀</div>
+            <h3>Estándar</h3>
+            <div class="precio">$30 <small>USD</small></div>
+            <p>Para quienes buscan más opciones.</p>
+            <ul>
+              <li>Orientación personalizada</li>
+              <li>Atención por WhatsApp</li>
+              <li>Coordinación del servicio</li>
+            </ul>
+            <div class="acciones-paquete">
+              <button class="boton"
+                onclick="agregarAlCarrito('Estándar', 30)">
+                🛒 Agregar al carrito
+              </button>
+              <button class="boton boton-secundario"
+                onclick="comprarAhora('Estándar', 30)">
+                📲 Contactar para comprar
+              </button>
+            </div>
+          </article>
+
+          <article class="paquete">
+            <div class="icono-paquete">👑</div>
+            <h3>Premium</h3>
+            <div class="precio">$50 <small>USD</small></div>
+            <p>Una opción más completa.</p>
+            <ul>
+              <li>Atención personalizada</li>
+              <li>Coordinación prioritaria</li>
+              <li>Detalles acordados por WhatsApp</li>
+            </ul>
+            <div class="acciones-paquete">
+              <button class="boton"
+                onclick="agregarAlCarrito('Premium', 50)">
+                🛒 Agregar al carrito
+              </button>
+              <button class="boton boton-secundario"
+                onclick="comprarAhora('Premium', 50)">
+                📲 Contactar para comprar
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <p class="aviso" style="text-align:center; margin-top:20px">
+          Los servicios específicos se confirman por WhatsApp antes de realizar el pago.
+        </p>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>¿Por qué elegirnos?</h2>
+          <p>Queremos que tengas una experiencia sencilla y clara.</p>
+        </div>
+
+        <div class="beneficios">
+          <article class="beneficio">
+            <h3>💡 Creatividad</h3>
+            <p>Buscamos ideas que se adapten a tus objetivos y a tu marca.</p>
+          </article>
+
+          <article class="beneficio">
+            <h3>🤝 Atención directa</h3>
+            <p>Puedes conversar con nosotros para resolver tus dudas.</p>
+          </article>
+
+          <article class="beneficio">
+            <h3>📋 Claridad</h3>
+            <p>Confirmamos los detalles y el precio antes de empezar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>¿Hablamos de tu proyecto?</h2>
+        </div>
+        <p>
+          Escríbenos por WhatsApp para consultar nuestros paquetes
+          y coordinar tu pedido.
+        </p>
+        <a class="boton"
+          href="https://wa.me/50766480803?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Boost%20Digital"
+          target="_blank" rel="noopener noreferrer">
+          📲 Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      © <span id="anio"></span> Boost Digital. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <a class="whatsapp-flotante"
+    href="https://wa.me/50766480803"
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp">☏</a>
+
+  <!-- El carrito permanece oculto hasta pulsar el botón -->
+  <aside class="carrito-ventana" id="carritoVentana"
+    aria-label="Carrito de compras" aria-hidden="true">
+    <div class="carrito-cabecera">
+      <h2>🛒 Tu carrito</h2>
+      <button class="cerrar" onclick="cerrarCarrito()"
+        aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div id="listaCarrito">
+      <p class="vacio">Tu carrito está vacío.</p>
+    </div>
+
+    <div class="total">
+      <span>Total:</span>
+      <span id="total">$0.00</span>
+    </div>
+
+    <div class="carrito-acciones">
+      <button class="boton" onclick="enviarPedido()">
+        📲 Continuar por WhatsApp
+      </button>
+      <button class="boton boton-secundario"
+        onclick="cerrarCarrito()">Seguir explorando</button>
+    </div>
+
+    <p class="aviso">
+      El pedido y el pago se coordinan por WhatsApp.
+    </p>
+  </aside>
+
+  <script>
+    const numeroWhatsApp = "50766480803";
+    const carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+
+      const cantidad = document.getElementById("cantidad");
+      cantidad.textContent = carrito.length;
+
+      alert(nombre + " se agregó al carrito.");
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("listaCarrito");
+      const totalElemento = document.getElementById("total");
+      const cantidad = document.getElementById("cantidad");
+
+      cantidad.textContent = carrito.length;
+
+      if (carrito.length === 0) {
+        lista.innerHTML = '<p class="vacio">Tu carrito está vacío.</p>';
+      } else {
+        lista.innerHTML = "";
+
+        carrito.forEach((producto, indice) => {
+          const fila = document.createElement("div");
+          fila.className = "producto-carrito";
+
+          const detalle = document.createElement("div");
+          const nombre = document.createElement("strong");
+          nombre.textContent = producto.nombre;
+
+          const precio = document.createElement("small");
+          precio.textContent = "$" + producto.precio.toFixed(2);
+
+          detalle.appendChild(nombre);
+          detalle.appendChild(precio);
+
+          const quitar = document.createElement("button");
+          quitar.className = "quitar";
+          quitar.textContent = "Quitar";
+          quitar.type = "button";
+          quitar.addEventListener("click", () => eliminarDelCarrito(indice));
+
+          fila.appendChild(detalle);
+          fila.appendChild(quitar);
+          lista.appendChild(fila);
+        });
+      }
+
+      const total = carrito.reduce(
+        (suma, producto) => suma + producto.precio, 0
+      );
+
+      totalElemento.textContent = "$" + total.toFixed(2);
+    }
+
+    function eliminarDelCarrito(indice) {
+      carrito.splice(indice, 1);
+      actualizarCarrito();
+    }
+
+    function abrirCarrito() {
+      const ventana = document.getElementById("carritoVentana");
+      ventana.classList.add("abierto");
+      ventana.setAttribute("aria-hidden", "false");
+    }
+
+    function cerrarCarrito() {
+      const ventana = document.getElementById("carritoVentana");
+      ventana.classList.remove("abierto");
+      ventana.setAttribute("aria-hidden", "true");
+    }
+
+    function comprarAhora(nombre, precio) {
+      const mensaje =
+        "Hola, quiero consultar y comprar el paquete " + nombre +
+        " de Boost Digital, con precio publicado de $" + precio +
+        ". ¿Me pueden dar más información?";
+
+      const url = "https://wa.me/" + numeroWhatsApp +
+        "?text=" + encodeURIComponent(mensaje);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function enviarPedido() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega un paquete primero.");
+        return;
+      }
+
+      let mensaje = "Hola, quiero consultar este pedido de Boost Digital:\n\n";
+      let total = 0;
+
+      carrito.forEach((producto) => {
+        mensaje += "- " + producto.nombre + ": $" +
+          producto.precio.toFixed(2) + "\n";
+        total += producto.precio;
+      });
+
+      mensaje += "\nTotal publicado: $" + total.toFixed(2);
+      mensaje += "\nQuisiera confirmar los detalles y la forma de pago.";
+
+      const url = "https://wa.me/" + numeroWhatsApp +
+        "?text=" + encodeURIComponent(mensaje);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    document.getElementById("anio").textContent =
+      new Date().getFullYear();
+
+    actualizarCarrito();
+  </script>
+
+</body>
+</html>
